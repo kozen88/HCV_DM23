@@ -178,3 +178,7 @@ map_male_female_ppf = create_map_from_dataframe(df_peri_portal_fibrosis)
 piechart_gender_comparison(map_male_female_ppf, (0.05, 0.05), blue, pink,
                            "Male vs female fibrosis: stage perirportal fibrosis")
 
+df_portal_fibrosis = male_portal_fibrosis.merge(female_portal_fibrosis, how='outer')
+map_male_female_pf = create_map_from_dataframe(df_portal_fibrosis)
+piechart_gender_comparison(map_male_female_pf, (0.05, 0.05), blue, pink,
+                           "Male vs female fibrosis: stage portal fibrosis")
