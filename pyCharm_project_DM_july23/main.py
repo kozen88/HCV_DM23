@@ -161,7 +161,7 @@ def piechart_gender_comparison(map, tuple_explode, color1, color2, main_title):
 # color used for plotting male vs female comparison
 blue = '#2a60de'
 pink = '#d8b4d9'
-
+"""""
 df_cirrhosis = male_cirrhosis.merge(female_cirrhosis, how='outer')
 map_male_female_cirrhosis = create_map_from_dataframe(df_cirrhosis)
 piechart_gender_comparison(map_male_female_cirrhosis,(0.05, 0.05), blue, pink,
@@ -182,3 +182,7 @@ df_portal_fibrosis = male_portal_fibrosis.merge(female_portal_fibrosis, how='out
 map_male_female_pf = create_map_from_dataframe(df_portal_fibrosis)
 piechart_gender_comparison(map_male_female_pf, (0.05, 0.05), blue, pink,
                            "Male vs female fibrosis: stage portal fibrosis")
+"""
+
+df_projectionRNA = df[['RNA EF', 'RNA EOT', 'RNA 12']]
+df_projectionRNA.to_excel("projection_on_RNAef-eot-12.xlsx")
