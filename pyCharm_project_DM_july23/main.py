@@ -136,7 +136,8 @@ plt.show()
 """
 
 
-# dictonary creation function
+# dictionary creation function, allow to extract gender from dataframe and to size the 2 classes and return a map
+# containing this information
 def create_map_from_dataframe(dataframe):
     samples_per_classes = list(dataframe.groupby('Gender').size())
     gender = ['Male', 'Female']
@@ -148,7 +149,8 @@ def create_map_from_dataframe(dataframe):
     return map_sample_gender
 
 
-# plot piechart gender confront
+# plot pie-chart gender confront is a support function to help and customize the plotting comparison on male and female
+# patient
 def piechart_gender_comparison(map, tuple_explode, color1, color2, main_title):
     plt.pie(map.values(), tuple_explode, map.keys(),
             colors=[color1, color2], shadow=True, startangle=90)
@@ -156,6 +158,12 @@ def piechart_gender_comparison(map, tuple_explode, color1, color2, main_title):
     plt.show()
 
 
-map_gender_df = create_map_from_dataframe(df)
-piechart_gender_comparison(map_gender_df,(0.05, 0.05), '#2a60de', '#d8b4d9',
-                           "Divisione tra uomini e donne affetti da fibrosi epatica")
+# color used for plotting male vs female comparison
+blue = '#2a60de'
+pink = '#d8b4d9'
+
+df_cirrhosis = male_cirrhosis.merge(female_cirrhosis, how='outer')
+map_male_female_cirrhosis = create_map_from_dataframe(df_cirrhosis)
+piechart_gender_comparison(map_male_female_cirrhosis,(0.05, 0.05), blue, pink,
+                           "Male vs female firbrosis: stage cirrhosis")
+
