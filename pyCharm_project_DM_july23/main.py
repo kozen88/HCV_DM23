@@ -167,3 +167,8 @@ map_male_female_cirrhosis = create_map_from_dataframe(df_cirrhosis)
 piechart_gender_comparison(map_male_female_cirrhosis,(0.05, 0.05), blue, pink,
                            "Male vs female firbrosis: stage cirrhosis")
 
+df_bridging_fibrosis = male_bridging_fibrosis.merge(female_bridging_fibrosis, how='outer')
+# df_bridging_fibrosis
+map_male_female_bf = create_map_from_dataframe(df_bridging_fibrosis)
+piechart_gender_comparison(map_male_female_bf,(0.05, 0.05), blue, pink,
+                           "Male vs female firbrosis: stage bridging fibrosis")
