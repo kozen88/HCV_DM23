@@ -96,6 +96,8 @@ female_portal_fibrosis = df[((df['Gender'] == 2) & (df['Baselinehistological sta
 # male_portal_fibrosis.to_excel("excel_male_portal_fibrosis_hcv_data.xlsx")
 # female_portal_fibrosis.to_excel("excel_female_portal_fibrosis_hcv_data.xlsx")
 
+# plotting for comparison male vs female number of individual with fibrosis
+"""""
 df.groupby('Gender').size()
 df['Gender'].describe()
 samples_per_gender = list(df.groupby('Gender').size())
@@ -111,3 +113,49 @@ explode = (0.05,0.05)
 plt.pie(map_sample_per_gender.values(), explode, map_sample_per_gender.keys(), colors=['#2a60de', '#d8b4d9'], shadow=True, startangle=90)
 plt.title("Divisione tra uomini e donne affetti da fibrosi epatica")
 plt.show()
+"""
+
+"""""
+# primo_df.merge(secondo_df, how='outer') # merge 2 dataframe raws over raws but is nedeed to have same features
+# pd.merge(primo_df, secondo_df, how='outer')
+df_cirrhosis = male_cirrhosis.merge(female_cirrhosis, how='outer')
+# df_cirrhosisdf.groupby('Gender').size()
+df_cirrhosis['Gender'].describe()
+samples_per_gender_cirrhosis = list(df_cirrhosis.groupby('Gender').size())
+print(samples_per_gender_cirrhosis)
+gender = ['Male', 'Female']
+map_sample_per_gender_cirrhosis = {}
+j = 0
+for i in gender:
+        map_sample_per_gender_cirrhosis[i] = samples_per_gender_cirrhosis[j]
+        j = j + 1
+print(map_sample_per_gender_cirrhosis)
+plt.pie(map_sample_per_gender_cirrhosis.values(), explode, map_sample_per_gender_cirrhosis.keys(), colors=['#2a60de', '#d8b4d9'], shadow=True, startangle=90 )
+plt.title("Divisione tra uomini e donne affetti da fibrosi epatica: stadio cirrosi")
+plt.show()
+"""
+
+
+# dictonary creation function
+def create_map_from_dataframe(dataframe):
+    samples_per_classes = list(dataframe.groupby('Gender').size())
+    gender = ['Male', 'Female']
+    map_sample_gender = {}
+    j = 0
+    for i in gender:
+        map_sample_gender[i] = samples_per_classes[j]
+        j = j + 1
+    return map_sample_gender
+
+
+# plot piechart gender confront
+def piechart_gender_comparison(map, tuple_explode, color1, color2, main_title):
+    plt.pie(map.values(), tuple_explode, map.keys(),
+            colors=[color1, color2], shadow=True, startangle=90)
+    plt.title(main_title)
+    plt.show()
+
+
+map_gender_df = create_map_from_dataframe(df)
+piechart_gender_comparison(map_gender_df,(0.05, 0.05), '#2a60de', '#d8b4d9',
+                           "Divisione tra uomini e donne affetti da fibrosi epatica")
