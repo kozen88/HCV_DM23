@@ -1,0 +1,8 @@
+https://archive.ics.uci.edu/dataset/503/hepatitis+c+virus+hcv+for+egyptian+patients
+
+alcune informazioni per capire lo staging del danno epatico link:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8087941/#cld1014-bib-0008
+
+tipi di staging secondo il sito precedente utilizzato:
+ (F0—no fibrosis, F1—portal fibrosis, F2—periportal fibrosis, F3—bridging fibrosis, F4—cirrhosis)
+l'idea è di tenere i 4 stadi che abbiamo dei pazienti con problemi epatici le classi scelte vanno da F1 a F4 e i colori associati ricalcano la gravità della fibrosi, F1 = giallo in HEX:#FFFF40, F2 = arancio in Hex:#FF7010, F3 = rosso in Hex:#E00000 e in fine F4 = viola in Hex:#601070.
