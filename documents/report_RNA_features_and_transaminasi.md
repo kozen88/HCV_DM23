@@ -1,4 +1,4 @@
-# Report pn RNA features and transaminasis features
+# Report on RNA features 
 <p align="justify">Dall'esplorazione dei dati non si sono notate forti correllazioni tra le features del data set di nostro interesse tutta via risulta una modesta correlazione tra 3 features inerenti a test riguardanti l'RNA-HCV il quale risulta essere un test che monitora l'attività di sintesi del virus dell'epatite C quando infetta un idividuo e inizia a usare l'ospite per replicare il suo RNA e riprodursi. Per chiarezza dettagliamo le features del data set che riguardano tali test e le analizzeremo alla luce delle informazioni di partenza e di quelle ricavate dalla business understanding e dalla data exploration and visualization che abbiamo eseguito sul dataset e su delle sue proiezioni. </p>
 
 <br></br>
@@ -60,10 +60,30 @@ RNA-HCV.</p>
 <br></br>
 
 ## Summarization for dataset projection 
+Presentiamo le statistiche più significative che descrivono la proiezione del dataset analizzato:
+
+ |       |         RNA Base |            RNA 4 |           RNA 12 |   RNA EOT |   RNA EF |
+|:------|-----------------:|-----------------:|-----------------:|----------:|---------:|
+| count |   1385           |   1385           |   1385           |      1385 |     1385 |
+| mean  | 590951           | 600896           | 288754           |    287660 |   291378 |
+| std   | 353935           | 362315           | 285351           |    264560 |   267701 |
+| min   |     11           |      5           |      5           |         5 |        5 |
+| 25%   | 269253           | 270893           |      5           |         5 |        5 |
+| 50%   | 593103           | 597869           | 234359           |    251376 |   244049 |
+| 75%   | 886791           | 909093           | 524819           |    517806 |   527864 |
+| max   |      1.20109e+06 |      1.20172e+06 |      3.73153e+06 |    808450 |   810333 |
+
+<p align="justify">mostriamo inoltre l'istogramma che è stato studiato per cercare di capire l'andamento del RNA nei vari test e che correlazione ci fosse data dal tempo, come chiaramente ipotizzato e confermato dalla letteratura scientifica tende a diminuire dove aver iniziato il trattamento con anti-virali:</p>
+
+<img src="../img/img_describing_data_set/means_fullRna2.png" alt="pf stat on male-fem" width="500" height="300">
+
+<p align="justify">L'istogramma conferma le nostre ipotesi che si attestano verificate infatti in base al trattamento sotto anti-virale i pazienti in media tendono a migliorare e l' attivita di sitesi polimerale da parte del virus HCV tende a diminuire.</p>
+
+<img src="../img/img_describing_data_set/sum_report_RNAfull_and_partial.png" alt="pf stat on male-fem" width="500" height="300">
 
 <br></br>
 
-### link utili:
+### Usefull links to get a better understanding on the report:
 [antivirali usati per il trattamento](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330612/)
 
-[info](https://brieflands.com/articles/hepatmon-15279.html)
+[info sullo studio condotto e le analisi di screen per la fibrosi](https://brieflands.com/articles/hepatmon-15279.html)
