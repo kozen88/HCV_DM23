@@ -33,7 +33,7 @@ RNA-HCV.</p>
 
 ![virulenza](../img/img_presantation/valori_di_virulenza.png)
 
-[https://www.epatitec.info/Calibrazione test RNA-hcv](https://www.epatitec.info/strumenti-informativi/interviste-specialisti/hcv-rna-quantificare-virus-sangue#:~:text=Non%20esistono%20in%20assoluto%20soglie,alti%20ma%20sono%20considerazioni%20arbitrarie.)
+- [https://www.epatitec.info/Calibrazione test RNA-hcv](https://www.epatitec.info/strumenti-informativi/interviste-specialisti/hcv-rna-quantificare-virus-sangue#:~:text=Non%20esistono%20in%20assoluto%20soglie,alti%20ma%20sono%20considerazioni%20arbitrarie.)
 
 
 <p align="justify">Queste ricerche fatte portano alla luce 3 problematiche maggiori:</p>
@@ -84,6 +84,6 @@ Presentiamo le statistiche più significative che descrivono la proiezione del d
 <br></br>
 
 ### Usefull links to get a better understanding on the report:
-[antivirali usati per il trattamento](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330612/)
+- [antivirali usati per il trattamento](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5330612/)
 
-[info sullo studio condotto e le analisi di screen per la fibrosi](https://brieflands.com/articles/hepatmon-15279.html)
+- [info sullo studio condotto e le analisi di screen per la fibrosi](https://brieflands.com/articles/hepatmon-15279.html)
