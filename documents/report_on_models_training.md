@@ -268,7 +268,7 @@ Durante la fase di classificazione, ogni modello debole emette una previsione e 
 
 <img src="../img/img_describing_results/BK_CV_AdaB30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="" alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_ADA100.png" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
@@ -300,7 +300,11 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 <p align="justify">Anche per lo XGBoost le performance non cambiano di molto anche se sembra comportarsi meglio dell'ADAboost infatti riesce a toccare picchi di 26% di accurancy. Sembra che aumentando il numero di fold in particolare dopo aver superato i 17 le performance tendono a calare sotto il 24% di accurancy. Ad ogni modo restiamo sempre su modelli inefficaci per il task che ci siamo posti.</p>
 
 #### Gradient Boost Classifier
-<p align="justify"></p>
+<p align="justify">Il modello di classificazione Gradient Descent Boosting (GDB) è un algoritmo di apprendimento automatico che utilizza una combinazione di alberi decisionali per effettuare la classificazione dei dati. È un tipo di algoritmo di apprendimento ensemble, in cui diversi modelli vengono combinati per ottenere una previsione più accurata.
+Il processo di creazione di un modello GDB inizia con la creazione di un albero decisionale. Questo albero viene addestrato sui dati di addestramento e utilizza una tecnica chiamata "boosting" per selezionare le caratteristiche più importanti da utilizzare durante la creazione del modello. In particolare, il boosting assegna un peso maggiore ai dati che sono stati classificati in modo errato dal modello precedente, in modo da concentrarsi sui dati più difficili da classificare.
+Durante la fase di classificazione, ogni albero nel modello GDB emette una previsione e la classe finale viene determinata tramite votazione maggioritaria. Tuttavia, a differenza di altri algoritmi di apprendimento ensemble, come il Random Forest, il modello GDB utilizza una tecnica chiamata "gradient descent" per ottimizzare la combinazione degli alberi decisionali. In particolare, il modello cerca di minimizzare una funzione di perdita che misura l'errore di classificazione del modello.</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Extreme Gradient Boosting:</p>
 
 <img src="../img/img_describing_results/GrBos_Stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -316,18 +320,21 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
 #### Conclusion on Gradient Boost Classifier
+<p align="justify">Quest'ultimo metodo di esemble learning basato sul boosting sembra essere il peggiore di tutti quelli utilizzati anche per lui scarse performance che non superano il 24% di accurancy. Questo modello è scartato per future ottimizzazioni.</p>
 
-13. Logistic Regression
-    14. Ridge Classifier
-    15. Linear Support Vector Machine
-    16. NuSVC support vector machine con coefficiente nu
-    17. SVC support vector machine con coefficiente c
-    18. Sthocastic Gradient Descent Classifier
 
 
 ## Model based on regression
+<p align="justify">I modelli di classificazione basati sulla regressione sono un tipo di algoritmo di apprendimento automatico che utilizza la regressione per effettuare la classificazione dei dati. Invece di prevedere un valore numerico come nella regressione tradizionale, questi modelli prevedono la probabilità di appartenenza a una determinata classe.
+In pratica, questi modelli utilizzano una funzione di regressione per stimare la probabilità di appartenenza a una classe specifica in base alle variabili predittive. La classe finale viene quindi determinata selezionando la classe con la probabilità più alta.
+I modelli di classificazione basati sulla regressione sono utilizzati principalmente per problemi di classificazione binaria, in cui l'obiettivo è prevedere se un'osservazione appartiene a una classe o all'altra. Tuttavia, possono essere utilizzati anche per problemi di classificazione multiclasse, in cui l'obiettivo è prevedere l'appartenenza a una delle molte classi possibili.</p>
+
 ### Logistic Regression
-<p align="justify"></p>
+<p align="justify">La regressione logistica è un modello di classificazione utilizzato per prevedere la probabilità di appartenenza di un'osservazione a una delle classi target. Questo modello utilizza una funzione logistica per calcolare la probabilità di appartenenza a una classe. La funzione logistica è una funzione sigmoide che restituisce un valore compreso tra 0 e 1. Questo valore rappresenta la probabilità che l'osservazione appartenga alla classe positiva.
+Durante la fase di addestramento, il modello di regressione logistica utilizza un insieme di dati di addestramento per stimare i coefficienti del modello. Questi coefficienti vengono utilizzati per calcolare la probabilità di appartenenza a una classe per ogni osservazione.
+Durante la fase di classificazione, il modello di regressione logistica utilizza la probabilità calcolata per assegnare un'osservazione a una delle due classi possibili. In genere, viene utilizzato un valore di soglia per determinare la classe finale. Se la probabilità calcolata supera la soglia, l'osservazione viene assegnata alla classe positiva, altrimenti viene assegnata alla classe negativa.</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Logistic Regression:</p>
 
 <img src="../img/img_describing_results/LR_stats%20.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -342,10 +349,15 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-#### Conclusion 
+#### Conclusion on Logistic Regression
+<p align="justify">La logistic regression non ci ha portato ai risultati che volevamo raggiungere ad ogni modo il modello oscilla in un range stretto, ovvero il centro di tali oscillazione è 26% di accurancy questo sgnifica che potrebbe essere un tra i modelli cha saranno selezionati come migliori per successivi esperimenti e ottimizzazioni.</p>
 
 ### Ridge Regression
-<p align="justify"></p>
+<p align="justify">La regressione ridge è un modello di regressione lineare che utilizza una tecnica di regolarizzazione chiamata "ridge penalty" per ridurre la varianza del modello e prevenire l'overfitting. La regressione ridge è spesso utilizzata per problemi di regressione in cui il numero di variabili predittive è maggiore del numero di osservazioni.
+Il modello di regressione ridge è simile alla regressione lineare, ma include un termine di regolarizzazione nella funzione di costo. Questo termine di regolarizzazione è proporzionale al quadrato della norma L2 dei coefficienti del modello, che significa che i coefficienti del modello vengono penalizzati se diventano troppo grandi. Questo aiuta a ridurre la varianza del modello e a prevenire l'overfitting.
+Il parametro di regolarizzazione, chiamato "lambda", controlla l'importanza della penalizzazione. Un valore di lambda più alto aumenta la penalizzazione e riduce la complessità del modello, mentre un valore di lambda più basso riduce la penalizzazione e aumenta la complessità del modello.</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Ridge Regression:</p>
 
 <img src="../img/img_describing_results/RigR_stast.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -360,11 +372,18 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-#### Conclusion 
+#### Conclusion on Ridge Regression
+<p align="justify">Gli esperimenti condotti ci hanno mostrato come tale modello oscilli in un range di accurancy strett tra 24.5% e 25.5% mantendendo una  buona stabilità. Notiamo come i metodi basati sulla regressione siano abbastanza solidi, ovvero non tendono ad oscillare troppo e si mantengono sui range di accurancy stretti. Per il ridge classifier comunque non sembra esserci almeno per ora la possibilità di selezionarlo.</p>
 
 ## Model based on Support Vector Macchine
+<p align="justify">I modelli di classificazione basati su Support Vector Machine (SVM) sono algoritmi di apprendimento automatico che utilizzano un approccio di apprendimento supervisionato per la classificazione dei dati. L'obiettivo principale di un modello SVM è quello di trovare un iperpiano che separi i dati in due classi.</p>
+
 ### Linear Support Vector Macchine
-<p align="justify"></p>
+<p align="justify">Il modello di classificazione Linear SVM (Support Vector Machine) è un algoritmo di apprendimento automatico che viene utilizzato per la classificazione. L'obiettivo del modello è quello di trovare un iperpiano che separi i dati, tale iperpiano viene definito come una combinazione lineare delle variabili predittive, dove ogni variabile ha un peso associato. L'obiettivo dell'algoritmo è quello di trovare i pesi ottimali che massimizzano la distanza tra l'iperpiano e i punti più vicini delle due classi, chiamati vettori di supporto.
+Il modello di classificazione Linear SVM è particolarmente utile quando i dati sono linearmente separabili, ovvero quando esiste un iperpiano che separa perfettamente le due classi. Tuttavia, quando i dati non sono linearmente separabili, è possibile utilizzare una tecnica chiamata "kernel trick" per proiettare i dati in uno spazio di dimensioni superiori, dove è più probabile che siano linearmente separabili.
+</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Linear SVM:</p>
 
 <img src="../img/img_describing_results/LSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -379,10 +398,16 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-#### Conclusion 
+#### Conclusion on Linear SVM
+<p align="justify">Dopo gli esperimenti condotti notiamo che per k troppo bassi il modello tende a essere meno efficiente e lo stesso dicasi se il k supera la soglia di 20 folds. Nela range 7-20 fold il Linear SVM ha avuto performance che oscillano tra 25.5% e 27% per tali ragioni resta uno tra i migliori modelli fino ad ora addestrati.</p>
+
 
 ### Nu Support Vectort Macchine or coefficient Nu SVM
-<p align="justify"></p>
+<p align="justify">Il modello di classificazione NU Support Vector Machine (SVM) è un algoritmo di apprendimento automatico per la classificazione binaria e multiclasse. Il parametro NU controlla il numero di support vector e la larghezza della regione di decisione. In altre parole, NU controlla la complessità del modello e la sua capacità di generalizzazione. Un valore di NU più basso indica un modello più complesso, mentre un valore di NU più alto indica un modello più semplice.
+Il modello di classificazione NU SVM utilizza una funzione kernel per mappare i dati di input in uno spazio di dimensioni superiori, dove è più facile separare le classi. La funzione kernel più comune utilizzata con il modello NU SVM è la funzione RBF (Radial Basis Function).
+Durante la fase di addestramento, il modello NU SVM cerca di trovare l'iperpiano che massimizza la distanza tra i punti di supporto e l'iperpiano stesso. Questo iperpiano viene utilizzato per separare le classi e per effettuare la classificazione dei dati di test.</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Nu SVM:</p>
 
 <img src="../img/img_describing_results/NSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -397,10 +422,14 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-#### Conclusion 
+#### Conclusion on Nu SVM
+<p align="justify">Anche questo modello basato su support vector macchine ha dato un range di accurancy viciono a quello che vogliamo battere si notano però forti cali tra k compreso in [12,21].Per i restanti valori di k si comporta in modo simile al linear SVM.</p>
 
 ### Support Vector Macchine coefficient C
-<p align="justify"></p>
+<p align="justify">Il modello di classificazione basato su SVM (Support Vector Machine) con coefficiente C è un algoritmo di apprendimento automatico supervisionato utilizzato per la classificazione di dati. Il parametro C è un parametro di regolarizzazione che controlla la penalizzazione degli errori di classificazione. Un valore elevato di C indica una penalizzazione elevata degli errori di classificazione, il che significa che il modello cercherà di classificare correttamente tutti i punti di addestramento, anche se questo significa creare un iperpiano più complesso. Al contrario, un valore basso di C indica una penalizzazione bassa degli errori di classificazione, il che significa che il modello cercherà di creare un iperpiano più semplice, anche se questo significa classificare alcuni punti di addestramento in modo errato.
+Il modello di classificazione basato su SVM con coefficiente C è in grado di gestire dati non lineari utilizzando una tecnica chiamata "kernel trick". Questa tecnica consiste nell'applicare una funzione di trasformazione ai dati di addestramento per proiettarli in uno spazio di dimensioni superiori, dove è più facile trovare un iperpiano che separi le classi. I kernel più comuni utilizzati sono il kernel lineare, il kernel polinomiale e il kernel RBF (Radial Basis Function).</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello C SVM anche conosciuto come SVM con coefficiente C:</p>
 
 <img src="../img/img_describing_results/CSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -415,11 +444,20 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-#### Conclusion 
+#### Conclusion on C SVM
+<p align="justify">Anche quest'ultimo modello è risultado un modello solido a bassa varianza nei risultati di accurancy ottenuti. Sembra che il C SVM sacrifichi i picchi di ottimalità delle performance a vantaggio di una tendenza alla stabilità di fatti è stato l'unico dei 3 modelli basati su SVM a mantenere oscillazioni contenute con qualche picco di accurancy che supera il 26.5%.</p>
 
 ## Model based on Gradient Descent
+<p align="justify">I modelli di classificazione basati sulla discesa del gradiente sono algoritmi di apprendimento automatico che utilizzano il metodo della discesa del gradiente per addestrare un modello di classificazione. Questi modelli cercano di minimizzare una funzione di costo che misura l'errore di classificazione del modello.
+Durante la fase di addestramento, il modello di classificazione basato sulla discesa del gradiente aggiorna iterativamente i pesi delle variabili predittive in base al gradiente della funzione di costo. Il gradiente rappresenta la direzione di massimo aumento della funzione di costo, quindi l'obiettivo è quello di muoversi nella direzione opposta per ridurre l'errore di classificazione.</p>
+
+
 ### Sthocastic Gradient Descent Classifier
-<p align="justify"></p>
+
+<p align="justify">Stochastic Gradient Descent (SGD) è una variante dell'algoritmo di discesa del gradiente in cui i pesi vengono aggiornati per ogni singola osservazione del set di dati di addestramento. Questo rende l'algoritmo più veloce ma può essere più suscettibile al rumore nei dati.</p>
+
+<p align="justify">Riportiamo i risultati ottenuti dall'addestramento di un modello Sthocastic Gradient Descent Classifier:</p>
+
 
 <img src="../img/img_describing_results/SGD_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
@@ -431,6 +469,17 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 <img src="../img/img_describing_results/BK_CV_SthocasticGDC30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../img/img_describing_results/BK_CV_SVCcoefC100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on Sthocastic Gradient Descent 
+<p align="justify">I risultati ottenuti dagli esperimenti condotti hanno messo in evidenza che questo modello oscilla maggiormewnte rispetto a quelli basati sui SVM per tali ragioni non sarà ottimizzato.</p>
+
+## Ottimization proposal
+<p align="justify">Alla fine degli esperimenti di addestramento condotti nonostante non siamo riusciti a battare la moda non ci vogliamo arrendere e vogliamo investigare ancora sui modelli utilizzati per l'apprendimento al fine di selezionarli alcuni che potrebbero essere buoni canditati per giungere con le dovute ottimizzazioni dei parametri ai risultati che vogliamo ottenere.</p>
+
+### List of possible model for ottmization
+    1. scelta tra i 2 migliori modelli Bayesiani [Bernuolli/Complement]
+    2. scelta tra SVM [linear/Nu coef.]
+    3. Logistic regression
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
