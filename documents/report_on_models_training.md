@@ -292,7 +292,7 @@ Inoltre, XGBoost utilizza una tecnica chiamata "pruning" per rimuovere i rami de
 
 <img src="../img/img_describing_results/BK_CV_XGBoost30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_XGB100.png" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
