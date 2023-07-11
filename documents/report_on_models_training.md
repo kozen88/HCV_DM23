@@ -171,16 +171,16 @@
 #### Extra Tree
 <p align="justify"></p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/ExT_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/ExT_principal_fold.png" alt="Descrizione dell'immagine" width="500" height="400">
 <br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_ExtraTree30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_Et100.png" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
@@ -190,16 +190,16 @@
 #### Ada Boost
 <p align="justify"></p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/AdaB_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/AdaB_principal_fold.png" alt="Descrizione dell'immagine" width="500" height="400">
 <br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_AdaB30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
@@ -208,14 +208,14 @@
 #### XGBoost
 <p align="justify"></p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/XGB_stats.png"  alt="Descrizione dell'immagine" width="500" height="100">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/XGB_principal_fold.png"  alt="Descrizione dell'immagine" width="500" height="400">
 <br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_XGBoost30.png" alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
@@ -223,17 +223,17 @@
 
 #### Conclusion on XGBoost
 
-#### Gradient Boost Classidier
+#### Gradient Boost Classifier
 <p align="justify"></p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/GrBos_Stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/GrBos_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="400">
 <br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BK_CV_GradientBoost30.png"  alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
@@ -241,9 +241,122 @@
 
 #### Conclusion on Gradient Boost Classifier
 
+13. Logistic Regression
+    14. Ridge Classifier
+    15. Linear Support Vector Machine
+    16. NuSVC support vector machine con coefficiente nu
+    17. SVC support vector machine con coefficiente c
+    18. Sthocastic Gradient Descent Classifier
 
 
+## Model based on regression
+### Logistic Regression
+<p align="justify"></p>
 
+<img src="../img/img_describing_results/LR_stats%20.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/LR_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="100">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_LinearReg30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_LinearRegr100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion 
+
+### Ridge Regression
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/RigR_stast.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/RigR_principal_fold.png" alt="Descrizione dell'immagine" width="500" height="400">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_RidgeRegres30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_RidgeRegr100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion 
+
+## Model based on Support Vector Macchine
+### Linear Support Vector Macchine
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/LSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/LSVM_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="400">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_SVM30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion 
+
+### Nu Support Vectort Macchine or coefficient Nu SVM
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/NSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/NSVM_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="400">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_NuSVM30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_NuSVM100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion 
+
+### Support Vector Macchine coefficient C
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/CSVM_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/CSVM_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="400">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_SVCcoefC30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_SVCcoefC100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion 
+
+## Model based on Gradient Descent
+### Sthocastic Gradient Descent Classifier
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/SGD_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/SGD_principal_folds.png" alt="Descrizione dell'immagine" width="500" height="400">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_SthocasticGDC30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_SVCcoefC100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
 <p style='text-align: justify;'>Visualizziamo la situazione generale del nostro dataset dei patienti fibrotici per sesso:</p>
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
