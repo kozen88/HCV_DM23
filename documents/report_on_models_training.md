@@ -45,6 +45,7 @@
 <p align="justify">In seguito si sono effettuati dei test di addestramento e valutazione delle performace sul modello con i principali valori di fold usati nella cross validation presi dalla letteratura scientifica i quali hanno dato i seguenti risultati:</p>
 
 <img src="../img/img_describing_results/Tree_stat_principali_folds.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
 
 <p align="justify">Infine riportiamo i risultati ottenuti dall'ottimizzazione dei folds richiesti per la cross vaalidation:</p>
 
@@ -62,13 +63,14 @@
 
 
 
-## Training on model based on Bayesian framework
+## Training of model based on Bayesian framework
 ### Gaussian Naive Bayes
 <p align="justify"></p>
 
 <img src="../img/img_describing_results/GNB_statistiche.png"  alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../img/img_describing_results/GNB_stat_principali_valori_fold.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
@@ -78,6 +80,10 @@
 
 <img src="../img/img_describing_results/BK_CV_GausB300.png" alt="Descrizione dell'immagine" width="500" height="200">
 
+#### Conclusion on Gaussian Naive Bayes
+<p align="justify">......</p>
+
+
 
 
 ### Multinomial Naive Bayes
@@ -86,34 +92,158 @@
 <img src="../img/img_describing_results/MNB_stat_principali_fold.png" alt="Descrizione dell'immagine" width="500" height="100">
 
 <img src="../img/img_describing_results/MNB_main__folds.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
 
 <p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
 
-<img src="../img/img_describing_results/BK_CV_MultinomialNB30.png" alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/MNB_best_cv30.png" alt="Descrizione dell'immagine" width="500" height="200">
    
-<img src="../img/img_describing_results/BK_CV_MultinomialNB100.png" alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/MNB_best_cv100.png" alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="../img/img_describing_results/BK_CV_MultinomialNB300.png" alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/MNB_best_cv300.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on Multinomial Naive Bayes 
+<p align="justify">........</p>
+
 
 
 
 ### Bernoulli Naive Bayes
 <p align="justify"></p>
 
-<img src=".." alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BerNB_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<img src="../img/img_describing_results/BerNB_principal_fold.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_BernuolliNB30.png" alt="Descrizione dell'immagine" width="500" height="200">
    
+<img src="../img/img_describing_results/BK_CV_BernoulliNB100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_BernoulliNB300.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+
 ### Complement Naive Bayes
 <p align="justify"></p>
    
+<img src="../img/img_describing_results/ComNB_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/COMNB_principla_fold.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_ComplementNB30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_ComplementNB100.png" alt="Descrizione dell'immagine" width="500" height="200">
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/BK_CV_ComplementNB300.png" alt="Descrizione dell'immagine" width="500" height="200">
+<p align="justify"></p>
+
+
+#### Conclusion on Complement Naive Bayes
+<p align="justify">.......</p>
+<br></br>
+
+## Training of model based on ensemble learning
+###  Ensemble model with Bagging strategy
+#### Random Forest
+<p align="justify"></p>
+
+<img src="../img/img_describing_results/RanF_stats.png" alt="Descrizione dell'immagine" width="500" height="100">
+
+<img src="../img/img_describing_results/RanF_principal_fold.png" alt="Descrizione dell'immagine" width="500" height="300">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../img/img_describing_results/BK_CV_RanFo30.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../img/img_describing_results/BK_CV_RandFo100.png" alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on Random Forest
+
+#### Extra Tree
+<p align="justify"></p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
 
-<img src="../ alt="Descrizione dell'immagine" width="500" height="200">ù
+#### Conclusion on Extra Tree
+
+### Ensemble model with Boosting strategy
+#### Ada Boost
+<p align="justify"></p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on Ada Boost
+
+#### XGBoost
+<p align="justify"></p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on XGBoost
+
+#### Gradient Boost Classidier
+<p align="justify"></p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+<br></br>
+
+<p align="justify">Riportiamo di seguito i grafici di ottimizzazione della cross validation che visualizzazano l'andamento dell'accurnacy rispetto al numero di fold effettuati:</p>
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+<img src="../ alt="Descrizione dell'immagine" width="500" height="200">
+
+#### Conclusion on Gradient Boost Classifier
+
+
+
+
 
 <p style='text-align: justify;'>Visualizziamo la situazione generale del nostro dataset dei patienti fibrotici per sesso:</p>
 <img src="../ alt="Descrizione dell'immagine" width="500" height="200">
