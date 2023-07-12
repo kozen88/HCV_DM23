@@ -1,9 +1,0 @@
-#1: dataset caricato presa visualizzazione, creata una copia in execell per una maggiore visibilità per singole esplorazioni mirate con il software execell
-
-#2:Inizio task descrittivo e bussiss undestanding dei dati che abbiamo e di come andremo a manipolarli:
-		- descrizioni statistiche generiche
-		- controllo delle istanze 
-
-#3: data visualization:
-		- piechart per capire se le classi sono bilanciate
-		- barchart per capire se le classi sono bilanciate
