@@ -1,2 +1,17 @@
 # HCV_DM23
-This repository contains a data mining proget for uniba university
+<p align="justify">Questo progetto è stato creato per affrontare l'esame di data mining presso l'università di Bari corso di laurea triennale in informatica. Nonostante rappresenti un progetto in ambito accademico per il superamento di un esame l'ideologia che ha permesso di svilupparlo va oltre i confini universitari e cerca di porre rimedio a un problema di una certa entità che affligge parecchi Paesi nel mondo con la ferma convinzione che la tecnologia posta al servizio degli uomini permetterà a questi di raggiungere traguardi mai osati pensare sino ad oggi.</p>
+
+## Studio di partenza e problema trattato il virus HCV
+<p align="justify">Il progetto si basa su di uno studio condotto da un team di medici Egiziani che hanno affrontato la documentazione e il trattamento di pazienti infettati dal virus dell'epatite C e che in seguito hanno sviluppato danni permanenti a carico del fegato. Lo studio ha permesso di raccogliere dati sanitari su tali pazienti riguardanti i loro parametri biometrici, i valori ematici e i test condotti per monitorare l'attività del virus HCV. Ad ogni uno di questi pazienti è stato diagnosticato uno stadio di danno epatico o meglio di fibrosi epatica assegnato secondo la scala METAVIR la quale prevede 4 gradi di fibrosi dal più lieve sino alla cirrosi epatica che risulta essere il più grave. Lo stadio chiaramente è stato assegnato dai medici dopo analisi diagnostiche quali biopsia del tessuto epatico ed ecografia addominale. L'attenzione di tali medici su questo problema è dovuta alla forte presenza del virus in Egitto e del grande numero di pazienti Egiziani che ogni anno vengono coontagiati, basti pensare che questi medici hanno dato vita ad una scala per valutare il grado di malfunzionamento del fegato indipendentemente dalla stadio cortrelato con la scala METAVIR e questo punteggio varia su di una scala da 0 a 20 ove 0 segnala la normale attività del fegato e 20 compromissione tale da portare a rischio di morte. </p>
+
+## Studio condotto con metodologia Crisp-DM per cercare di far  fronte al problema 
+<p align="justify">Il progetto ha l'ambizione di riuscire ad allegerire il carico sanitario dei reparti che trattano queste patologie, cercando di risparmiare risorse fondamentrali che attualmente si necessitano per il processo di diagnostica della malattia e per monitorare il grado e lo stadio di avanzamento della fibrosi epatica. Infine si vuole migliorare la convivenza di questi pazienti con la malattia che sfortunatamente in quanto crronica tenderà ad accompagnarli per il resto della loro vita.</p>
+
+### Il dataset usato e i link utili
+- [dataset utilizzato](https://archive.ics.uci.edu/dataset/503/hepatitis+c+virus+hcv+for+egyptian+patients)
+- [abstract dei medici Egiziani sul problema del HCV](https://www.nature.com/articles/s41598-023-29262-z#:~:text=Egypt%20is%20the%20country%20with%20the%20highest%20HCV%20prevalence%20worldwide,in%20most%20age%20groups8.)
+- [abstract dei medici Egiziani + sommario](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8087425/)
+- [fibrosi epatica e scale di valutazione](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8087941/#cld1014-bib-0008)
+- [nuove terapie](https://www.aifa.gov.it/-/due-nuove-terapie-di-combinazione-contro-l-epatite-c-cronica)
+- [gli anti-virali](https://www.ars.toscana.it/aree-dintervento/problemi-di-salute/malattie-infettive/sorveglianza-delle-malattie-infettive/news/3752-gli-effetti-degli-antivirali-ad-azione-diretta-nel-trattamen)
+- [gli anti-virali2](https://salute.regione.emilia-romagna.it/ssr/strumenti-e-informazioni/ptr/elaborati/aggsett2020docptr229)
