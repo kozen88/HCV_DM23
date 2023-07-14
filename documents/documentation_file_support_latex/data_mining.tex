@@ -1,0 +1,220 @@
+\documentclass[italian,12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{blkarray, bigstrut} %
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{colortbl}
+\usepackage{pgf-pie}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algorithmicx}
+\usepackage{placeins}
+\usepackage{svg}
+\usepackage{tabularx}
+\title{Università degli studi di Bari facoltà di informatica}
+\date{} % clear date
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdfpagemode=FullScreen,
+}
+\graphicspath{ {./img/} }
+\RequirePackage[subfigure]{tocloft}
+
+\cftsetindents{section}{0em}{2em}
+\cftsetindents{subsection}{0em}{2em}
+
+\renewcommand\cfttoctitlefont{\hfill\Large\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+\setcounter{tocdepth}{2}
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\begin{center}
+		\huge	\textbf{Progetto di Data Mining} \\
+		\Large \textbf{HCV DM23 Liver fibrosis staging classification}
+	\end{center}
+	
+	
+	
+	\begin{center}
+		by \\
+		\Large \textbf{Diego Miccoli}
+	\end{center}
+
+	
+	\begin{figure}[hb]
+		\centering
+		\includegraphics[width=10cm]{logoUNIlatex.png}
+	\end{figure}
+	
+	\vfill
+	\begin{center}
+		Anno accadenico 2022-2023
+	\end{center}
+	
+	\newpage
+	
+	\tableofcontents
+
+	\newpage
+
+	
+	\section{Introduzione}
+
+	\subsection{HCV e problema affrontato}
+    Lo sviluppo di questo progetto si basa sullo studio di un gruppo di medici Egiziani i quali hanno condotto delle indagini di ricerca sui danni provocati dal virus dell'epatite C sul fegato. Questo studio di ricerca è stato mosso dalla grave situazione di epidemiologia in cui si trova attualmente la nazione Egitto. Essa infatti assieme a Bolivia, Camerun, Guinea e Mongolia detendono il primato per maggior numero di contagi annui e per proliferazione del HCV nella popolazione. Questi paesi rappresentano i principali focolai maggiormente attivi nel mondo tuttavia HCV infetta ogni anno parecchi individui in Brasile nell'Africa centrale, est Europa e Asia, mentre nel resto del mondo grazie ad una adeguata prevenzione la diffusione è tenuta sotto controllo a livelli non allarmanti dal punto di vista della sanità. Questo team di medici Egiziani ha cercato di investigare sul epidemiologia del HCV in Egitto e su come questo si evolva all'interno dell'organismo umano e come porta all'insorgenza di fibrosi epatica che tenda a cronicizzare nel tempo.
+    \\
+	
+	\subsection{Dati raccolti dallo studio dei medici sul HCV}
+	I medici hanno raccolto un intero dataset che sarà quello che utilizzeremo per il progetto di data mining, il quale contiene dati biometrici dei pazienti presi in esame per lo studio sul HCV, i loro test ematici svolti per monitorare alcuni parametri e indicatori presenti nel sangue, i test delle transaminasi con particolare riguardo all'ALT ovvero alanina ammino trasferrasi, i test riguardanti l'attività di sintesi polimerica del HCV ovvero il processo con il quale il virus una volta che infetta le cellule del corpo umano, inizia una fase trascrittiva del proprio RNA per usare la cellula ospite come fabbrica per la replicazione e la diffusione. A corredo di questi dati infine vi sono generalità del paziente e due scale di valutazione del danno epatico. La prima scala è conosciuta in medicina con il nome di scala METAVIR ed essa prevede 4 livelli o stadi di fibrosi epatica, la seconda scala invece è un scala di uso recente ed attualmente non è utilizzata a livello globale in sanità o in medicina, questo perchè è stato il team dei medici sopra citato a idearla per avere un idea del danno epatico rispetto alla compromissione della funzionalità. La differenza tra le due scale sta nel fatto che la METAVIR identifica e classifica il danno epatico in base alla trasformazione degli epatociti in tessuto fibrotico ovvero tessuto che non ricopre le funzionalità del fegato, mentre la seconda cerca di quantificare la progeressione della fibrosi e quindi del problema epatico in base alla ridotta funzionalità del fegato e assume una scala di valori da 0 a 20.
+
+	
+	\subsection{La fibrosi epatica}
+ 
+    La fibrosi epatica è una condizione in cui il tessuto cicatriziale si accumula nel fegato in risposta a danni cronici o ripetuti. Questa cicatrizzazione può verificarsi a causa di diverse cause, come l'epatite virale, l'uso cronico di alcol, le malattie autoimmuni del fegato, l'accumulo di grasso nel fegato (steatosi epatica non alcolica) o altre condizioni che causano danni al fegato nel tempo.
+    La fibrosi epatica progredisce attraverso diversi stadi, noti come stadi di fibrosi o gradi di fibrosi. Esistono diversi sistemi di classificazione per valutare la fibrosi epatica, ma uno dei più comuni è il sistema METAVIR, che assegna un punteggio da F0 a F4 per descrivere l'estensione della fibrosi epatica. Ecco una breve descrizione di ciascun stadio secondo il sistema METAVIR:
+    
+    
+    \begin{enumerate}
+		\item \textbf{F0: Nessuna fibrosi },  Il fegato non mostra segni di cicatrizzazione o fibrosi significativa. Questo è considerato uno stadio normale senza cicatrizzazione.
+		\item \textbf{F1: Fibrosi portale }, Si osserva una leggera fibrosi nella zona del portale, che è l'area intorno ai vasi sanguigni e ai dotti biliari nel fegato. La fibrosi è ancora relativamente limitata.
+		\item \textbf{F2: Fibrosi portale con ponti }, La fibrosi è più marcata e si osservano ponti fibrosi tra le zone del portale adiacenti.
+		\item \textbf{F3: Fibrosi settale}, La fibrosi si estende oltre le zone del portale e coinvolge le pareti dei setti, che sono le strutture interne del fegato che separano le unità funzionali chiamate lobi epatici. La cicatrizzazione è significativa, ma non ha ancora compromesso la struttura del fegato in modo critico.
+		\item \textbf{F4: Cirrosi}, Questo è lo stadio più avanzato della fibrosi epatica in cui la cicatrizzazione del fegato è estensiva e irreversibile. La struttura del fegato è compromessa, con formazione di noduli cicatriziali che possono interferire con il normale flusso di sangue attraverso il fegato.
+	\end{enumerate} 
+
+    \vspace{25pt}
+    
+	È importante notare che la fibrosi epatica è un processo progressivo e che la presenza di fibrosi avanzata (stadio F3 o F4) indica un rischio elevato di sviluppare complicanze epatiche gravi, come l'insufficienza epatica o il carcinoma epatocellulare. Pertanto, è cruciale identificare e trattare la fibrosi epatica nelle fasi iniziali per prevenire la progressione a stadi più avanzati e proteggere la funzione epatica.
+
+    \subsection{trattamento generale della fibrosi epatica e antivirale usato nello studio}
+	I trattamenti generali per la fibrosi epatica legata alle infezioni da HCV includono l'uso di farmaci antivirali ad azione diretta DAA e misure per il sostegno del fegato volte a favorire la ripresa delle sue normali attività enzimatiche. Nello studio citato è stato scelto un trattamento con un antivirali chiamato Sobusbovir, in particolare questo farmaco agisce andando ad inibire l'attività polimerasi del virus andando quindi ad impedirne la replicazione all'interno della cellula. Durante il trattamento le attività di monitoraggio e follow-up regolari sono un must che risulta di vitale importanza per monitorare attentamente la risposta del paziente e l'evoluzione della fibrosi epatica. Ciò può comportare l'esecuzione di test di funzionalità epatica, test di carica virale e biopsie epatiche per valutare l'estensione della fibrosi e il grado di danno al fegato, ed infine ecografie addominali atte a valutare le dimensioni del fegato e l'accumulo di liquidi dovuti a mal funzionamento della vena portale. Modifiche dello stile di vita sono richieste durante e dopo il trattamento per supportare la salute del fegato e queste possono include l'astensione dal consumo di alcol e l'adozione di una dieta equilibrata ed evitare cibi ad alto contenuto di grassi. Risultano infine essenziali le informazioni di comprensione dello stato di salute del paziente e di un piano terapeutico volto a gestire la presenza di coomorbilità e altre patologie e l'uso di altri farmaci quest'ultimo punto è di vitale importanza in quanto il fegato è l'organo deputato allo smaltimento dei rifiuti del nostro organismo e allo smaltimento di sostanze quali i medicinali per tali ragione è essensiale una comprensione di questa sitauzione da parte del paziente.
+    \\
+
+	\subsection{Come la data mining può intervenire su questo problema}
+    Alla luce di quanto detto fino ad ora ci chiediamo cosa possa centrare la data mining in tutto questo che sembra di dominio della medicina. Partiamo con il dire che ogni qualvolta che sono presenti dei dati in buone quantità la data mining è la risorsa che ci permette di estrarre tutte le pontenzialità intrinseche nei dati, ma non facilmente riconoscibili senza una attenta analisi. Questo processo porta quindi alla scoperta di nuove informazioni che si possono rilevare di vitale importanza, per tali ragioni il primo obiettivo che si pone questo progetto è quello di scoprire correlazioni utili tra i dati raccolti dai medici al fine di trarre conclusioni che permettano di agevolare la gestione e il trattamento di questi pazienti affetti da fibrosi epatica. Come secondo obiettivo il quale riveste il cardine della nostra ricerca e sperimentazione sarà quello di implementare dei modelli di machine learning supervisionati che permettano di utilizzare i dati raccolti per addestrare il modello in futuro a riconoscere a partire da tali dati, ovvero osservazioni laboratoristiche e esami diagnostici medici, la stadio attuale della fibrosi epatica di un dato paziente. Questo modello se riuscisse a realizzare tale predizione con buone performance di esattezza potrebbe integrare l'attività medico-sanitaria nelle procedure di diagnostica e trattamento di questi pazienti apportando notevoli risparmi in termine di esami diagnostici costosi che vengo ad essere evitati, quali ecografie e biopsie del tessuto epatico, con la conseguenza di alleggerire il carico di lavoro dei reparti ospedalieri adibiti al trattamento di questa patologia e la possibilità di donare una più serena convivenza con la malatia cronica al paziente che non dovrà sottoporsi ripetutamente a test dolorosi.
+    \\
+    
+    \subsection{Cosa è e cosa studia la data mining}
+    La data mining è il processo di scoperta di informazioni significative, modelli e relazioni all'interno di grandi quantità di dati. È una disciplina che combina concetti e tecniche provenienti da diverse aree, come l'intelligenza artificiale, la statistica , la matematica e l'analisi dei dati.
+    L'obiettivo principale del data mining è estrarre conoscenze utili e previsioni da un insieme di dati, al fine di supportare la presa di decisioni informate. Attraverso l'applicazione di algoritmi sofisticati, il data mining analizza i dati alla ricerca di modelli nascosti, tendenze o anomalie che potrebbero non essere facilmente identificabili tramite metodi tradizionali. Per realizzare tutto quello che abbiamo appena descritto essa applica un processo analitico diviso in più fasi teso ad analizzare il problema sotto diversi aspetti e punti di vista con il fine di produrre un piano di azione e dei risultati da raggiungere. Esistono 2 principali metodologie per l'applicazione di tali processi che portano all'estrazione della conoscenza dai dati e questi sono:
+    \\
+    
+    \begin{itemize}
+		\item  \textbf{SEMMA}, sta per Sample, Explore, Modify, Model, e Assess ovvero le principali attività svolte. Questa metodologia fornisce una struttura organizzata per l'intero ciclo di vita del progetto di data mining.
+		\item  \textbf{CRISP-DM}, Cross-Industry Standard Process for Data Mining è una metodologia ampiamente utilizzata per il processo di data mining che costa di 6 fasi. Permette  un approccio flessibile e iterativo che guida gli analisti attraverso le fasi chiave del progetto di data mining.   
+	\end{itemize}
+
+    \vspace{30pt}
+    
+   \section{Metodologie della data mining }
+   
+    \subsection{SEMMA}
+    Il SAS Institute ha sviluppato SEMMA come processo di data mining. Si compone di cinque passaggi ( S ample, E xplore, M odify, M odel e A ssess), guadagnandosi l'acronimo di SEMMA. È possibile utilizzare la metodologia di data mining SEMMA per risolvere un'ampia gamma di problemi aziendali, tra cui l'identificazione delle frodi, la fidelizzazione e il turnover dei clienti, il database marketing, la fidelizzazione dei clienti, la previsione dei fallimenti, la segmentazione del mercato, nonché l'analisi del rischio, dell'affinità e del portafoglio. SEMMA è concepito come una metodologia di scienza dei dati per aiutare i professionisti a convertire i dati in conoscenza. Il processo SEMMA si scompone in una propria serie di fasi. Questi includono:
+
+    \begin{enumerate}
+		\item \textbf{Sample "Campione"}, In questa fase, viene selezionato un campione rappresentativo dai dati disponibili. Il campione è una porzione dei dati che verrà utilizzata per l'analisi e il modello di data mining. L'obiettivo di questa fase iniziale del processo è identificare variabili o fattori (sia dipendenti che indipendenti) che influenzano il processo. Le informazioni raccolte vengono quindi ordinate in categorie di preparazione e convalida.
+		\item \textbf{Explore "Esplorare"}, vengono esplorati i dati per comprendere la loro struttura e distribuzione. Vengono utilizzati metodi statistici e visualizzazioni per individuare relazioni, tendenze, anomalie o pattern significativi. Attraverso l'analisi multivariata si studia la relazione tra le variabili, mentre con quella univariata si esamina ciascun fattore individualmente per comprendere la sua parte nello schema generale.
+		\item \textbf{Modify "Modificare"}, lezioni apprese nella fase di esplorazione dai dati raccolti nella fase di campionamento vengono derivate con l'applicazione della logica aziendale. In altre parole, i dati vengono analizzati e puliti applicando trasformazioni o modifiche ai dati stessi per migliorarne la qualità, la coerenza o la rilevanza per l'analisi. Queste modifiche possono includere la pulizia dei dati, l'eliminazione di valori mancanti o outlier, la normalizzazione delle variabili.
+		\item \textbf{Model "Modellizzare"}, vengono creati modelli statistici o algoritmi di data mining per estrarre conoscenze dai dati. Questi modelli possono includere tecniche come clustering, classificazione, regressione o associazione, a seconda degli obiettivi dell'analisi.
+		\item \textbf{Assess "Valutare"}, i modelli creati vengono valutati e testati utilizzando dati aggiuntivi o attraverso tecniche di validazione incrociata. L'obiettivo è valutare l'accuratezza e l'affidabilità dei modelli e identificare eventuali miglioramenti o ottimizzazioni necessarie.
+	\end{enumerate}
+
+    \vspace{25pt}
+    
+    \subsection{KDD Knowledge discovery from data}
+    Il termine derriva da knowledge discovery in databases indica l'intero processo di ricerca di nuova conoscenza dai dati. Nella data mining si riferisce all'applicazione di algoritmi per estrarre pattern dai dati. Quindi il KDD è un processo con il quale si affronta lo studio dei dati per estrarne conoscenza e si basa sui seguenti passi:
+
+    \begin{enumerate}
+		\item \textbf{Analisi del dominio applicativo}, Sviluppo e approfondimento del dominio di applicazione, della conoscenza disponibile a priori e degli obiettivi dell'utente finale.
+		\item \textbf{Creazione di un target data set}, selezione del data set o focalizzazione su un sottoinsieme di variabili o di campioni di dati oggetto del processo KDD.
+		\item \textbf{Cleaning dei dati e preprocessing:},  operazioni di base come la rimozione del rumore o degli outliers se è il caso, raccolta delle informazioni necessarie per modellare o tener conto del rumore, messa a punto di strategie per gestire i dati mancanti e per gestire i dati tempo-varianti.
+		\item \textbf{Riduzione dei dati e proiezione}, rappresentazione dei dati in modo opportuno in relazione agli obiettivi della ricerca. Riduzione delle dimensioni e impiego di metodi di trasformazione per ridurre l'effettivo numero di variabili da sottoporre al processo di ricerca. 
+		\item \textbf{Scelta del compito del processo di data mining}, identificazione dell'obiettivo del KDD, stabilire, cioè se si tratti di una classificazione, di una regressione, di un clustering.
+		\item \textbf{Scelta dell'algoritmo o degli algoritmi di data mining}, selezione dei metodi da usare per ricercare pattern nei dati. Questa fase comprende la decisione su quali modelli e parametri potrebbero essere appropriati e il matching di un particolare metodo di data mining con i criteri generali del processo KDD.
+        \item \textbf{Data mining}, ricerca di pattern di interesse in una particolare forma di rappresentazione o su un set di rappresentazioni diverse. Il risultato del processo di data mining è considerevolmente influenzato dalla correttezza delle fasi precedenti.
+        \item \textbf{Interpretazione dei pattern trovati}, analisi dei risultati prodotti e della necessità di ritornare su step precedenti per corroborare i pattern trovati.
+        \item \textbf{Consolidamento della conoscenza estratta}, incorporazione di tale conoscenza nel sistema di performance o, semplicemente, documentazione e reporting alle parti interessate. Questa fase include anche il controllo per la risoluzione di potenziali contraddizioni con la conoscenza precedentemente disponibile.
+	\end{enumerate}
+
+    \vspace{25pt}
+    
+    \subsection{Crisp-DM}
+    Il  Cross  Industry Standard  Process for  Data  Mining meglio conosciuto come CRISP-DM  è un modello di processo che funge da base per un processo di  data science. Fu pubblicato per la prima volta nel 1999 con l'obiettivo di standardizzare i processi di data mining in tutti i settori industriali volti a scoprire nuova conoscenza dai dati e a prendere decisioni per le aziende in base all'analisi di tali dati. In particolare il CRISP-DM si compone di sei fasi:
+	
+	\begin{enumerate}
+		\item \textbf{Buisness understanding}, dove si studia e si comprende il dominio applicativo e gli obiettivi da raggiungere, andando a produrre un project plan. Questa prima fase consta a sua volta di più sotto-fasi quali \textbf{Determina gli obiettivi di business} per comprendere a fondo, dal punto di vista del business, ciò che il cliente vuole veramente ottenere. \textbf{Valutare la situazione}  per determinare la disponibilità delle risorse, i requisiti del progetto, valutare i rischi e le contingenze e condurre un'analisi costi-benefici. \textbf{Determinare gli obiettivi di data mining} sewrve per definire gli obiettivi di business, è necessario anche definire l'aspetto del successo dal punto di vista del data mining tecnico. \textbf{Produzione del piano di progetto} seleziona tecnologie e strumenti e definisci piani dettagliati per ogni fase del progetto.
+		\item \textbf{Data understanding}, fase nella quale si identificano metodi per l'acquisizione dei dati, problemi legati a quest'ultimi, come la qualità, gli errori, etc.., quì avviene la fase di esplorazione preliminare del dataset. Anche questa fase consta di 4 sotto-fasi \textbf{Raccolta  dati iniziali} acquisisci i dati necessari e (se necessario) caricali nel tuo strumento di analisi. \textbf{Descrivi i dati} esamina i dati e documenta le proprietà della superficie come il formato dei dati, il numero di record o le identità dei campi. \textbf{Esplora i dati} scava più a fondo nei dati. Interrogalo, visualizzalo e identifica le relazioni tra i dati. \textbf{Verifica la qualità dei dati} Quanto sono puliti/sporchi i dati? Documentare eventuali problemi di qualità.
+		\item \textbf{Data preparation}, preparazione del dataset(s) andando a determinare il sottoinsieme dei dati che più rappresenta il dataset in funzione degli obiettivi, pulendo il dataset da errori, valori mancanti, \textit{outliers} ed attributi non funzionali allo scopo (feature selection), attuare tecniche per andare a ribilanciare i dati e così via. le sotto-fasi sono le seguenti Selezionare i dati: determinare quali set di dati verranno utilizzati e documentare i motivi dell'inclusione/esclusione. \textbf{pulitura dei dati} spesso questa è l'attività più lunga. Senza di esso, probabilmente cadrai vittima di immondizia in entrata e in uscita. Una pratica comune durante questa attività consiste nel correggere, imputare o rimuovere valori errati. \textbf{Costruizione dei dati} deriva nuovi attributi che saranno utili. Ad esempio, ricavare l'indice di massa corporea di qualcuno dai campi altezza e peso.\textbf{Integrazione dei dati} crea nuovi set di dati combinando i dati provenienti da più fonti. \textbf{Formattazione dei dati} riformatta i dati se necessario. Ad esempio, potresti convertire i valori stringa che memorizzano i numeri in valori numerici in modo da poter eseguire operazioni matematiche.
+		\item \textbf{Modeling}, fase in cui si selezionano le tecniche di modeling andando a scegliere gli algoritmi da provare ed eseguendoli con i dovuti parametri, per poi andare a valutarli con le opportune metriche. le sotto-fasi sono le seguenti \textbf{Seleziona le tecniche di modellazione} determina quali algoritmi provare. \textbf{Genera progettazione di test} in attesa del tuo approccio di modellazione, potresti dover suddividere i dati in set di addestramento, test e convalida. \textbf{Modello di costruzione} addestramento del modello scelto. \textbf{Modello di valutazione} in genere, più modelli competono l'uno contro l'altro e il data scientist deve interpretare i risultati del modello in base alla conoscenza del dominio, ai criteri di successo predefiniti e alla progettazione del test.
+		\item \textbf{Evaluation}, fase di confronto fra il data scientist ed il buisness owner per andare a valutare i risultati ottenuti in relazione agli obiettivi di buisness. Le sue sotto-fasi sono le seguenti \textbf{Valutare i risultati} per capire se i modelli soddisfano i criteri di successo aziendale. \textbf{Processo di revisione} rivedere il lavoro svolto. Controllare che tutti i passaggi sono stati eseguiti correttamente. Infine riassumere i risultati. \textbf{Determina i passaggi successivi} in base alle tre attività precedenti, determina se procedere alla distribuzione, eseguire ulteriori iterazioni o avviare nuovi progetti.
+		\item \textbf{Deployment}, fase finale di messa in produzione del modello selezionato.
+	\end{enumerate}
+
+	Il CRISP-DM è un metodo \textit{agile}, quindi le fasi scandite precedentemente non sono da considerare rigide, da applicare una dopo l'altra, ma si può, in caso di necessità, ritornare indietro da qualsiasi fase, rendendo, quindi, il processo molto flessibile.
+
+    \vspace{25pt}
+    
+	\subsection{Tool e software e metodologia scelti per il progetto}
+	Per il progetto in questione è stato scelto di adottare la metodologia Crisp-DM e di seguito forniamo la lista completa dei software e tools utilizzati per lo sviluppo: 
+	
+	\begin{itemize}
+         \item \href{https://www.microsoft.com/it-it/microsoft-365/excel}{Excel}, software aziendale di proprietà Microsoft per l'analisi e la visualizzazione dei dati. 
+        \item \href{https://www.jetbrains.com/pycharm/}{PyCharm}, IDE di sviluppo software per il linguaggio diu programmazione Python.
+		\item \href{https://colab.research.google.com/}{Google Colab}, strumento  presente nella suite Google che consente di scrivere python notebook direttamente dal proprio browser, utilizzando risorse messe a disposizione da remoto. 		
+        \item \href{https://www.cs.waikato.ac.nz/~ml/weka/}{Weka}, software contenente una collezione di algoritmi per data Mining e apprendimento Automatico, scritto in Java e sviluppato presso University of Waikato New Zealand.
+		\item \href{https://code.visualstudio.com/}{Visual Studio Code}, editor di codice.
+       \item \href{https://github.com/}{GitHub}, software per la distribuzione di codice e progetti.
+	\end{itemize}
+ 
+    \vspace{30pt}
+    
+	\section{Data Understanding}
+ 
+    \subsection{Descrizione dei dati}
+    Il primo passo che è stato eseguito è quello di analisi del dataset di partenza per farlo dopo aver inquadrato il problema dal lato business, siamo andati alla ricerca di come i nostri dati fossero, quali informazioni contenessero e con quali tecniche e metodologie siano stati raccolti. Questa è stata una fase impegnativa poichè molte volte mancava una documentazione a corredo dei dati che spiegasse cosa i dati raccolti rappresentassero e come fossero stati utilizzati nel progetto. La scarsa documentazione ha aperto in seguito a varie decisioni e ipotesi percorribili nella preparazione del dataset prima dell'addestramento. Per quanto riguarda le caratteristiche il nostro dataset è compposto da una dimensionalità di 30 attributi e da una cardinalità di 1385 esempi osservati. Scendendo nei particolari le feature a nostra disposizione sono le seguenti: 
+    \\ 
+    
+	\begin{enumerate}
+		\item \textit{Age [numeric][integer]}: età del paziente.
+		\item \textit{Gender [Categoric][numeric][binary]}: sesso del paziente.
+		\item \textit{BMI [numeric][integer]}: indice di massa corporea.
+		\item \textit{Fever [numeric][categorical][binary]}: presenza o meno della febbre.
+		\item \textit{Nauesa\ Vomit [numeric][categorical][binary]}: indica la presenza o meno di nausea e/o vomito.
+		\item \textit{Headache [numeric][categorical][binary]}: indica la presenza o meno di mal di testa.
+		\item \textit{Diarrea [numeric][categorical][binary]}: indica  la presenza o assenza di diarrea
+		\item \textit{Fatigue e generalized bone ache  [numeric][categorical][binary]}: indica la presenza di affaticamento e dolori generalizzati alle ossa.
+		\item \textit{Jaundice} [numeric][categorical][binary]: indica la presenza o assenza di ittero epatico.
+		\item \textit{Gastric pain} [numeric][categorical][binary]: indica la presenza o assenza di dolore gastrico.
+        \item \textit{WBC [numeric][integer]}: conta dei globuli bianchi.
+        \item \textit{RBC [numeric][integer]}: conta dei globuli rossi.
+        \item \textit{HGB [numeric][integer]}: valore dell'emoglobina.
+        \item \textit{Plat [numeric][integer]}: conta pèiastrinica.
+        \item \textit{AST1 [numeric][integer]}: valore del test aspartato transaminasi.
+        \item \textit{ALT1 [numeric][integer]}: valore test alanina ammino trasaminasi.
+        \item \textit{ALT4 [numeric][integer]}: valore test alanina ammino trasaminasi a 4 settimane dal trattamento.
+        \item \textit{ALT12 [numeric][integer}: valore test alanina ammino trasaminasi a 12 settimane dal trattamento.
+        \item \textit{ALT24 [numeric][integer]}: valore test alanina ammino trasaminasi a 24 settimane dal trattamento.
+        \item \textit{ALT36 [numeric][integer]}: valore test alanina ammino trasaminasi a 36 settimane dal trattamento.
+        \item \textit{ALT48 [numeric][integer]}: valore test alanina ammino trasaminasi a 48 settimane dal trattamento.
+        \item \textit{ALT after 24 w [numeric][integer]}: valore test alanina ammino trasaminasi a 24 settimane dopo la fine del trattamento.
+        \item \textit{RNA Base [numeric][integer]}: valori test di Abott per rilevare l'attività polimerasica del HCV.
+        \item \textit{RNA 4 [numeric][integer]}: valori test di Abott per rilevare l'attività polimerasica del HCV a 4 settimane dal trattamento.
+        \item \textit{RNA 12 [numeric][integer]}: valori test di Abott per rilevare l'attività polimerasica del HCV a 12 settimane dal trattamento.
+        \item \textit{RNA EOT [numeric][integer]}: valori test di Abott per rilevare l'attività polimerasica del HCV a fine del trattamento.
+        \item \textit{RNA EF [numeric][integer]}: valori test di Abott per rilevare l'attività polimerasica del HCV sul fattore di elongasi, ma la documentazion è insufficiente per averne la certezza.
+        \item \textit{Baseline histological}: scala numerica Egiziana per valutare il danno epatico. Poche informazioni sul suo funzionamento.
+        \item \textit{Baselinehistological staging}: scala di classificazione della fibrosi secondo METAVIR. 
+    \end{enumerate}
